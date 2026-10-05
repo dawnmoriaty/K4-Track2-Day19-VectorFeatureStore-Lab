@@ -31,6 +31,9 @@ seed: ## [both] (Re)generate data/corpus_vn.jsonl + data/golden_set.jsonl
 api: ## [lite] Start FastAPI /search on http://localhost:8000
 	@$(UVICORN) app.main:app --reload --port 8000
 
+ui: ## [bonus] Start Hybrid Memory Agent Studio on http://localhost:8501
+	@$(PY) bonus/web_app.py
+
 lab: ## [lite] Open Jupyter Lab on http://localhost:8888
 	@$(JUPYTEXT) --to notebook --update notebooks/[0-9]*.py 2>/dev/null || true
 	@$(JUPYTER) lab --notebook-dir=notebooks --ServerApp.token='' --no-browser
