@@ -29,8 +29,18 @@
 
 ---
 
+## Advanced Notebooks (NB5–NB8)
+
+- **NB5 — Filtered Search:** Post-filter recall sập về 0.00 khi selectivity ~4%. Filtered-ANN giữ recall 1.00 ở mọi mức. Over-fetch cần ~50% corpus mới cứu được recall — không khả thi cho production.
+- **NB6 — Agentic Retrieval:** Agentic recall 0.906 vs single-shot 0.526 (cùng budget 16 doc). Tuy nhiên agentic+filter (0.823) < agentic no-filter (0.906) — filter suy đoán đôi khi loại nhầm document liên quan.
+- **NB7 — Semantic Cache:** Ngưỡng 0.75 còn 36% trả lời sai. Cần ≥ 0.85 cho corpus này. Rò chéo tenant khi thiếu namespace — lỗ hổng OWASP LLM08.
+- **NB8 — Feature Engineering:** Target encoding trên session_id: gap AUC 0.477. PIT vs latest join: 98.2% dòng rò, lift ảo +0.120 AUC. On-demand feature view giải quyết bài toán feature phụ thuộc request.
+
+---
+
 ## Bonus challenge
 
-- [ ] Đã làm bonus (xem `bonus/`)
+- [x] Đã làm bonus (xem `bonus/`)
+- [x] `make test` — 41 passed, `make verify-lite` — all checks passed
 - [ ] Pair work với: _None_
 
